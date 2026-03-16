@@ -151,13 +151,10 @@ public class cadastroVIEW extends javax.swing.JFrame {
         
         ProdutosDAO produtodao = new ProdutosDAO();
         
-        // Aqui está o "pulo do gato": vamos disparar a mensagem
         produtodao.cadastrarProduto(produto);
         
-        // Adicione estas linhas abaixo:
         javax.swing.JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
         
-        // Limpar os campos para o próximo cadastro
         cadastroNome.setText("");
         cadastroValor.setText("");
         cadastroNome.requestFocus();
