@@ -61,7 +61,19 @@ conn = new conectaDAO().connectDB();
             JOptionPane.showMessageDialog(null, "Erro ao listar: " + e.getMessage());
         }        return listagem;
     }
+    public void venderProduto(int id) {
+    conn = new conectaDAO().connectDB();
+    String sql = "UPDATE produtos SET status = 'Vendido' WHERE id = ?";
     
+    try {
+        prep = conn.prepareStatement(sql);
+        prep.setInt(1, id);
+        prep.executeUpdate();
+        javax.swing.JOptionPane.showMessageDialog(null, "Produto vendido com sucesso!");
+    } catch (Exception e) {
+        javax.swing.JOptionPane.showMessageDialog(null, "Erro ao vender produto: " + e.getMessage());
+    }
+}
     
     
         
